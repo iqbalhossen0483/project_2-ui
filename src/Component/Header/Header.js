@@ -24,8 +24,10 @@ const Header = () => {
                 <div className="flex flex-col md:flex-row">
                     <Link className={link} to="/home">Home</Link>
                     <Link className={link} to="/services">Services</Link>
-                    <Link className={link} to="/manage-orders">Manage Order</Link>
-                    <Link className={link} to="/add-service">Add Service</Link>
+                    {user.email && <>
+                        <Link className={link} to="/manage-orders">Manage Order</Link>
+                        <Link className={link} to="/add-service">Add Service</Link>
+                    </>}
                 </div>
                 <div className="flex">
                     {user.email && <div className="flex items-center">

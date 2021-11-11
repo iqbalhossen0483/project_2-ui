@@ -18,14 +18,17 @@ const MyOrder = () => {
 
     //delete order
     const handleDelete = (id) => {
-        fetch(`https://tourism-web-server-byrakib.herokuapp.com/orders/${id}`, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                const remain = orders.filter(order => order._id !== id);
-                setOders(remain);
+        const confirm = window.confirm("Are you sure to delete this?");
+        if (confirm) {
+            fetch(`https://tourism-web-server-byrakib.herokuapp.com/orders/${id}`, {
+                method: "DELETE"
             })
+                .then(res => res.json())
+                .then(data => {
+                    const remain = orders.filter(order => order._id !== id);
+                    setOders(remain);
+                })
+        }
     }
 
     if (isLoading) {

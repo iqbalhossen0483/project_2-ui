@@ -1,10 +1,17 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import CustomCss from '../CombineCss';
+import useAuth from "../Firebase/useAuth"
 
 const PlaceOrder = () => {
     const { form, input, submit } = CustomCss();
-    const { register, handleSubmit, reset } = useForm();
+    const { user } = useAuth();
+    const { register, handleSubmit, reset } = useForm({
+        defaultValues: {
+            name: user.displayName,
+            email: user.email
+        }
+    });
     const onSubmit = order => {
         order.status = "pending";
         fetch("https://tourism-web-server-byrakib.herokuapp.com/orders", {

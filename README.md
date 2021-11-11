@@ -1,6 +1,7 @@
 # Tourism web
 
 This project was build by react and tailwind css.
+see the site https://tourism-web-e4f05.web.app/
 
 ## Available features
 

@@ -5,7 +5,7 @@ import useAuth from '../Firebase/useAuth';
 
 
 const Header = () => {
-    const [showNav, SetShowNav] = useState(false);
+    const [showNav, SetShowNav] = useState(true);
     const { link, headerSection } = CustomCss();
     const { user, LogOut } = useAuth();
     const navbar = () => {

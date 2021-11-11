@@ -40,7 +40,7 @@ const SignUp = () => {
                 <h2 className="text-center text-2xl my-3">Please Sing Up</h2>
                 <input placeholder="Enter your name" className={input} {...register("name", { required: true })} />
                 <input type="email" placeholder="Enter your email" className={input} {...register("email", { required: true })} />
-                <input placeholder="Enter a password" className={input} {...register("password", { required: true })} />
+                <input type="password" placeholder="Enter a password" className={input} {...register("password", { required: true })} />
                 <input className={submit} type="submit" value="Sing Up" />
                 <p className="text-2xl text-center">Or</p>
                 <div className="flex justify-center my-3">

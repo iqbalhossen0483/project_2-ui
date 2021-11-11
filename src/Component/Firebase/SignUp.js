@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import CustomCss from '../CombineCss';
 import useAuth from './useAuth';
 
@@ -34,7 +35,7 @@ const SignUp = () => {
             .catch(err => console.log(err.message))
     }
     return (
-        <div className="w-1/4 mx-auto">
+        <div className="px-4 md:px-0 md:w-1/4 mx-auto">
             <form className={form} onSubmit={handleSubmit(onSubmit)}>
                 <h2 className="text-center text-2xl my-3">Please Sing Up</h2>
                 <input placeholder="Enter your name" className={input} {...register("name", { required: true })} />
@@ -49,6 +50,7 @@ const SignUp = () => {
                         src="https://i.ibb.co/5xqcLt2/download.png" alt=""
                     />
                 </div>
+                <p className="text-center">Already have a account? <Link className="text-purple-600" to='/sign-in'>Log In</Link></p>
             </form>
         </div>
     );

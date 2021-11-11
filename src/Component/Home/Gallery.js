@@ -22,7 +22,7 @@ const Gallery = () => {
     return (
         <div className="my-16">
             <h3 className={header}>Tour Gallery</h3>
-            <div className="grid grid-cols-4">
+            <div className="grid grid-cols-2 md:grid-cols-4">
                 {
                     gallery.map(img => <img key={img._id} className="h-full object-cover" src={img.img} alt="" />)
                 }

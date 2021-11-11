@@ -1,10 +1,14 @@
-# Getting Started with Create React App
+# Tourism web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was build by react and tailwind css.
 
-## Available Scripts
+## Available features
 
-In the project directory, you can run:
+* This is a single page website.
+* Fontend with backend both are includes.
+* Responsive site
+* Created was react tailwind etc.
+* Performance is so cool
 
 ### `yarn start`
 

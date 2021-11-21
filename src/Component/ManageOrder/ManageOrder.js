@@ -34,12 +34,12 @@ const ManageOrder = () => {
                     alert("order approved. to see that refresh the browser")
                 }
             })
-    }
+    };
     if (isLoading) {
         return <div className="h-screen flex justify-center items-center">
             <div className="spinner"></div>
         </div>
-    }
+    };
     const style = "grid grid-cols-8 border-b pt-2";
     return (
         <div className="bg-white text-center">

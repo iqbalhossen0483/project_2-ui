@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from "../Firebase/useAuth"
+import Footer from '../Footer/Footer';
 
 const MyOrder = () => {
     const [orders, setOders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { user } = useAuth();
-    const style = "grid grid-cols-8 border-b pt-2";
     useEffect(() => {
         fetch("https://tourism-web-server-byrakib.herokuapp.com/orders")
             .then(res => res.json())
@@ -37,32 +37,35 @@ const MyOrder = () => {
         </div>
     }
     return (
-        <div className="bg-white text-center">
-            <hr />
-            <div className={style}>
-                <p>Customer Name</p>
-                <p>Email Address</p>
-                <p>Where to</p>
-                <p>Destination</p>
-                <p>Date</p>
-                <p>Type</p>
-                <p>Status</p>
-                <p></p>
+        <div className='h-screen overflow-auto flex flex-col justify-between'>
+            <div className="bg-white mx-10 text-center my-5 p-3">
+                <div className='grid grid-cols-3'>
+                    <p>Customer Details</p>
+                    <p>Tour Details</p>
+                    <p>Status</p>
+                </div>
+                <hr />
+                {
+                    orders.map(order => <div key={order._id} className='grid grid-cols-3 mt-3 items-center'>
+                        <div>
+                            <p>Name: {order.name}</p>
+                            <p>Email: {order.email}</p>
+                        </div>
+                        <div>
+                            <p>Location: {order.location}</p>
+                            <p>Destination: {order.destination}</p>
+                            <p>Date: {order.date}</p>
+                            <p>Type: {order.type}</p>
+                        </div>
+                        <div className="flex">
+                            <p className="text-green-400">{order.status}</p>
+                            <button onClick={() => handleDelete(order._id)} className="border rounded py-1 px-3 hover:bg-blue-600 hover:text-white ml-5">CENCEL</button>
+                        </div>
+                        <hr className='col-span-3 mt-3' />
+                    </div>)
+                }
             </div>
-            {
-                orders.map(order => <div key={order._id} className={style}>
-                    <p>{order.name}</p>
-                    <p>{order.email}</p>
-                    <p>{order.location}</p>
-                    <p>{order.destination}</p>
-                    <p>{order.date}</p>
-                    <p>{order.type}</p>
-                    <p className="text-green-400">{order.status}</p>
-                    <div className="flex mb-2 justify-end">
-                        <button onClick={() => handleDelete(order._id)} className="border rounded py-1 px-3">Cancel</button>
-                    </div>
-                </div>)
-            }
+            <Footer />
         </div>
     );
 };

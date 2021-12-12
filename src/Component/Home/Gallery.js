@@ -20,7 +20,7 @@ const Gallery = () => {
         </div>
     }
     return (
-        <div className="my-16">
+        <div className="my-10">
             <h3 className={header}>Tour Gallery</h3>
             <div className="grid grid-cols-2 md:grid-cols-4">
                 {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../Footer/Footer';
 const ManageOrder = () => {
     const [orders, setOders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +32,7 @@ const ManageOrder = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    alert("order approved. to see that refresh the browser")
+                    alert("Tour finished. to see that refresh the browser")
                 }
             })
     };
@@ -40,35 +41,38 @@ const ManageOrder = () => {
             <div className="spinner"></div>
         </div>
     };
-    const style = "grid grid-cols-8 border-b pt-2";
+    const style = "grid grid-cols-3 border-b py-2";
     return (
-        <div className="bg-white text-center">
-            <hr />
-            <div className={style}>
-                <p>Customer Name</p>
-                <p>Email Address</p>
-                <p>Where to</p>
-                <p>Destination</p>
-                <p>Date</p>
-                <p>Type</p>
-                <p>Status</p>
-                <p></p>
-            </div>
-            {
-                orders.map(order => <div key={order._id} className={style}>
-                    <p>{order.name}</p>
-                    <p>{order.email}</p>
-                    <p>{order.location}</p>
-                    <p>{order.destination}</p>
-                    <p>{order.date}</p>
-                    <p>{order.type}</p>
-                    <p className="text-green-400">{order.status}</p>
-                    <div className="flex mb-2 justify-end">
-                        <button onClick={() => update(order._id)} className="border rounded py-1 px-3">Approve</button>
-                        <button onClick={() => handleDelete(order._id)} className="border rounded py-1 px-3">delete</button>
+        <div className=" h-screen overflow-auto flex flex-col justify-between">
+            <div className='bg-white text-center m-10 rounded'>
+                <hr />
+                <div className={style}>
+                    <p>Customer Details</p>
+                    <p>Order Details</p>
+                    <p></p>
+                </div>
+                {
+                    orders.map(order => <div key={order._id} className={style}>
+                        <div>
+                            <p>Name: {order.name}</p>
+                            <p>Email: {order.email}</p>
+                        </div>
+                        <div>
+                            <p>Location: {order.location}</p>
+                            <p>Destination: {order.destination}</p>
+                            <p>Date: {order.date}</p>
+                            <p>Type: {order.type}</p>
+                        </div>
+                        <div className="flex  justify-center items-center">
+                            <p className="text-green-400">{order.status}</p>
+                            <button onClick={() => update(order._id)} className="border rounded mx-3 py-1 px-3">Finished</button>
+                            <button onClick={() => handleDelete(order._id)} className="border rounded py-1 px-3">delete</button>
+                        </div>
                     </div>
-                </div>)
-            }
+                    )
+                }
+            </div>
+            <Footer />
         </div>
     );
 };

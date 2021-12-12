@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CustomCss from '../CombineCss';
 
 const Service = ({ children }) => {
-    const { container, serviceContainer } = CustomCss();
+    const { serviceContainer } = CustomCss();
     const [isLoading, setIsLoading] = useState(true);
     const [services, setServices] = useState([]);
     useEffect(() => {
@@ -20,7 +20,7 @@ const Service = ({ children }) => {
         </div>
     }
     return (
-        <div className={container}>
+        <div className="px-10 py-5">
             {children}
             <div className={serviceContainer}>
                 {
@@ -29,7 +29,7 @@ const Service = ({ children }) => {
                         <h3 className="text-2xl font-semibold my-3 text-center">{service.name}</h3>
                         <p className="px-3 text-justify">{service.description.slice(0, 300)}</p>
                         <div className="flex justify-center my-3 pb-3 md:pb-0">
-                            <Link to="/place-order"><button className="border rounded py-1 px-3">Book now</button></Link>
+                            <Link to={`/place-order/${service._id}`}><button className="btn">Book now</button></Link>
                         </div>
                     </div>)
                 }

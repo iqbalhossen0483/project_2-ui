@@ -1,6 +1,6 @@
 const CustomCss = () => {
     const link = "hover:underline ml-3";
-    const headerSection = "p-3 bg-white flex flex-col md:flex-row justify-between text-xl font-semibold";
+    const headerSection = "px-3 py-1 sticky top-0 bg-white flex flex-col md:flex-row justify-between text-xl font-semibold";
 
     //banner
     const bgImg = { backgroundImage: "url('https://i.ibb.co/3YVDrsd/tour-1-title-7.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "100% 20rem" };

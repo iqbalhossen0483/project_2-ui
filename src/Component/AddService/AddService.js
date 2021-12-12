@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import CustomCss from '../CombineCss';
 
 const AddService = () => {
-    const { form, input, submit } = CustomCss();
+    const { form, input } = CustomCss();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = service => {
         fetch("https://tourism-web-server-byrakib.herokuapp.com/services", {
@@ -23,12 +23,12 @@ const AddService = () => {
     };
     return (
         <div className="flex justify-center">
-            <form className={form} onSubmit={handleSubmit(onSubmit)}>
+            <form className="bg-white rounded-md flex flex-col w-96 p-4 my-10" onSubmit={handleSubmit(onSubmit)}>
                 <h2 className="text-center mb-2 text-2xl">Add a tourist place</h2>
-                <input className={input} {...register("name")} placeholder="Enter place name" />
-                <input className={input} {...register("img")} placeholder="Enter image url" />
-                <input className={input} {...register("description")} placeholder="Enter description" />
-                <input className={submit} type="submit" />
+                <input className={input} {...register("name", { required: true })} placeholder="Enter place name" />
+                <input className={input} {...register("img", { required: true })} placeholder="Enter image url" />
+                <textarea rows={5} className={input} {...register("description", { required: true })} placeholder="Enter description" />
+                <input className="btn mt-3" type="submit" />
             </form>
         </div>
     );

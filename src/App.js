@@ -1,9 +1,8 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, } from 'react-router-dom';
 import './App.css';
 import Header from './Component/Header/Header';
 import Home from './Component/Home/Home';
 import AddService from './Component/AddService/AddService';
-import Footer from './Component/Footer/Footer';
 import NotFound from './Component/NotFound/NotFound';
 import PlaceOrder from './Component/PlaceOrder/PlaceOrder';
 import Survices from './Component/ServicesPage/Survices';
@@ -12,6 +11,11 @@ import LogIn from './Component/Firebase/LogIn';
 import SignUp from './Component/Firebase/SignUp';
 import PrivateRouter from './Component/Firebase/PrivateRouter';
 import MyOrder from './Component/MyOrder/MyOrder';
+import Blog from './Component/Blog';
+import AddBlog from './Component/AddBlog';
+import BlogDetails from './Component/BlogDetails';
+import Desboard from './Component/Desboard';
+import Footer from './Component/Footer/Footer';
 function App() {
   const location = useLocation();
   return (
@@ -20,16 +24,23 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/add-service" element={<PrivateRouter element={<AddService />} />} />
+        <Route path="/blogs" element={<PrivateRouter element={<Blog />} />} />
+        <Route path="/blogs/:id" element={<PrivateRouter element={<BlogDetails />} />} />
+        <Route path="/add-blog" element={<PrivateRouter element={<AddBlog />} />} />
         <Route path="/place-order/:id" element={<PrivateRouter element={<PlaceOrder />} />} />
         <Route path="/services" element={<Survices />} />
-        <Route path="/manage-orders" element={<PrivateRouter element={<ManageOrder />} />} />
+
+        <Route path="/desboard" element={<PrivateRouter element={<Desboard />} />}>
+          <Route path="manage-orders" element={<PrivateRouter element={<ManageOrder />} />} />
+          <Route path="add-service" element={<PrivateRouter element={<AddService />} />} />
+        </Route>
+
         <Route path="/sign-in" element={<LogIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/my-order" element={<PrivateRouter element={<MyOrder />} />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      {location.pathname !== "/my-order" && location.pathname !== "/manage-orders" && <Footer />}
+      {location.pathname === "/services" && <Footer />}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from 'react-router-dom';
 import CustomCss from '../CombineCss';
 import useAuth from "../Firebase/useAuth"
+import Footer from '../Footer/Footer';
 
 const PlaceOrder = () => {
     const [place, setPlace] = useState({});
@@ -44,26 +45,29 @@ const PlaceOrder = () => {
             })
     };
     return (
-        <div className="w-2/6 mx-auto">
-            <form className={form} onSubmit={handleSubmit(onSubmit)}>
-                <h2 className="text-2xl text-center my-2">Place Order</h2>
-                <input className={input} type="text" placeholder="Enter your name" {...register("name", { required: true })} />
-                <input className={input} type="email" placeholder="Enter your email" {...register("email", { required: true })} />
-                <input className={input} type="text" placeholder="Where to?" {...register("location", { required: true })} />
-                <input className={input} type="date" {...register("date", { required: true })} />
-                <input
-                    className={input}
-                    type="text"
-                    placeholder="Enter your destination"
-                    {...register("destination", { required: true })}
-                    defaultValue={place && place.name}
-                />
-                <input className={input} type="text" placeholder="Type (bus, airplane)" {...register("type", { required: true })} />
-                <div className='flex justify-center'>
-                    <input className="btn my-3 w-48" type="submit" value="place order" />
-                </div>
-            </form>
-        </div>
+        <>
+            <div className="w-2/6 mx-auto">
+                <form className={form} onSubmit={handleSubmit(onSubmit)}>
+                    <h2 className="text-2xl text-center my-2">Place Order</h2>
+                    <input className={input} type="text" placeholder="Enter your name" {...register("name", { required: true })} />
+                    <input className={input} type="email" placeholder="Enter your email" {...register("email", { required: true })} />
+                    <input className={input} type="text" placeholder="Where to?" {...register("location", { required: true })} />
+                    <input className={input} type="date" {...register("date", { required: true })} />
+                    <input
+                        className={input}
+                        type="text"
+                        placeholder="Enter your destination"
+                        {...register("destination", { required: true })}
+                        defaultValue={place && place.name}
+                    />
+                    <input className={input} type="text" placeholder="Type (bus, airplane)" {...register("type", { required: true })} />
+                    <div className='flex justify-center'>
+                        <input className="btn my-3 w-48" type="submit" value="place order" />
+                    </div>
+                </form>
+            </div>
+            <Footer />
+        </>
     );
 };
 

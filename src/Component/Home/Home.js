@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomCss from '../CombineCss';
+import Footer from '../Footer/Footer';
 import Banner from './Banner';
 import Gallery from './Gallery';
 import Service from './Service';
@@ -15,6 +16,7 @@ const Home = () => {
             </Service>
             <Subcription></Subcription>
             <Gallery></Gallery>
+            <Footer />
         </div>
     );
 };

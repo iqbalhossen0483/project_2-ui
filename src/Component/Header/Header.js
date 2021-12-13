@@ -20,7 +20,7 @@ const Header = () => {
     };
 
     const changeBg = () => {
-        if (window.scrollY >= 80) {
+        if (window.scrollY >= 60) {
             setChange(true);
         }
         else {
@@ -32,13 +32,13 @@ const Header = () => {
         <>
             <div className="md:hidden text-right px-2 py-1">
                 <i onClick={navbar} className="fas fa-bars"></i></div>
-            {showNav && <div className={`${headerSection} ${change ? "bg-primary" : "bg-white"}`}>
+            {showNav && <div className={`${headerSection} ${change ? "bg-primary z-20" : "bg-white z-20"}`}>
                 <div className="flex flex-col md:flex-row">
                     <Link className={link} to="/home">Home</Link>
                     <Link className={link} to="/services">Best Places</Link>
+                    <Link className={link} to="/blogs">Blogs</Link>
                     {user.email && <>
-                        <Link className={link} to="/manage-orders">Manage Order</Link>
-                        <Link className={link} to="/add-service">Add Service</Link>
+                        <Link className={link} to="/add-blog">Add Blog</Link>
                     </>}
                 </div>
                 <div className="flex">

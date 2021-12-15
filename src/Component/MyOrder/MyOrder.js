@@ -38,7 +38,7 @@ const MyOrder = () => {
     }
     return (
         <div className='h-screen overflow-auto flex flex-col justify-between'>
-            <div className="bg-white mx-10 text-center my-5 p-3">
+            <div className="bg-white md:mx-10 text-center my-5 p-3">
                 <div className='grid grid-cols-3'>
                     <p>Customer Details</p>
                     <p>Tour Details</p>
@@ -49,7 +49,7 @@ const MyOrder = () => {
                     orders.map(order => <div key={order._id} className='grid grid-cols-3 mt-3 items-center'>
                         <div>
                             <p>Name: {order.name}</p>
-                            <p>Email: {order.email}</p>
+                            <p className='hidden md:block'>Email: {order.email}</p>
                         </div>
                         <div>
                             <p>Location: {order.location}</p>
@@ -59,7 +59,7 @@ const MyOrder = () => {
                         </div>
                         <div className="flex">
                             <p className="text-green-400">{order.status}</p>
-                            <button onClick={() => handleDelete(order._id)} className="border rounded py-1 px-3 hover:bg-blue-600 hover:text-white ml-5">CENCEL</button>
+                            <button onClick={() => handleDelete(order._id)} className="border rounded py-1 px-3 hover:bg-blue-600 hover:text-white md:ml-5">CENCEL</button>
                         </div>
                         <hr className='col-span-3 mt-3' />
                     </div>)

@@ -22,7 +22,7 @@ const BlogDetails = () => {
         </div>
     }
     return (
-        <div className='h-screen flex flex-col justify-between'>
+        <div className='h-screen overflow-auto flex flex-col justify-between'>
             <div className='m-10 bg-white rounded-md p-5'>
                 <h1 className='text-2xl font-semibold mb-2'>{title}</h1>
                 <p>{description}</p>

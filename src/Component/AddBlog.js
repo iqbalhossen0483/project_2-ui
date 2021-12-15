@@ -33,12 +33,12 @@ const AddBlog = () => {
     }
     return (
         <div className='h-full flex flex-col justify-between'>
-            <form className="bg-white rounded-md flex flex-col p-4 m-10" onSubmit={handleSubmit(onSubmit)}>
-                <input className="focus:outline-none text-4xl py-1 px-4" {...register("title", { required: true })} placeholder="Title here" />
-                <textarea className="focus:outline-none py-2 px-4 text-xl" rows={15} {...register("description", { required: true })} placeholder="Description" />
+            <form className="bg-white rounded-md flex flex-col p-4 m-3 md:m-10" onSubmit={handleSubmit(onSubmit)}>
+                <input className="focus:outline-none text-2xl md:text-4xl py-1 px-4" {...register("title", { required: true })} placeholder="Title here" />
+                <textarea className="focus:outline-none py-2 px-4 md:text-xl" rows={15} {...register("description", { required: true })} placeholder="Description" />
                 <button
                     disabled={disable}
-                    className="btn absolute top-24 right-12 z-0"
+                    className="btn absolute top-14 md:top-24 right-5 md:right-12 z-0"
                     type="submit">
                     Post
                 </button>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className="bg-primary px-10 py-5 grid grid-cols-3">
+        <div className="bg-primary px-10 py-5 md:grid grid-cols-3">
             <div>
                 <p className='text-2xl mb-2'>Contact Info</p>
                 <p>PHONE: Toll Free (123) 456-7890</p>

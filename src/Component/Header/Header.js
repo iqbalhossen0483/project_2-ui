@@ -5,33 +5,45 @@ import useAuth from '../Firebase/useAuth';
 
 
 const Header = () => {
-    const [showNav, SetShowNav] = useState(true);
+    const [showNav, setShowNav] = useState(true);
     const [change, setChange] = useState(false);
     const { link, headerSection } = CustomCss();
     const { user, LogOut } = useAuth();
 
     const navbar = () => {
         if (showNav) {
-            SetShowNav(false)
+            setShowNav(false)
         }
         else {
-            SetShowNav(true)
+            setShowNav(true)
         }
     };
 
     const changeBg = () => {
         if (window.scrollY >= 60) {
             setChange(true);
-        }
-        else {
+        } else {
             setChange(false);
         }
-    }
+        if (window.innerWidth < 480 && window.scrollY > 200) {
+            setShowNav(false)
+        }
+    };
+    const screenChanged = () => {
+        if (window.innerWidth < 480) {
+            setShowNav(false);
+        } else {
+            setShowNav(true);
+        }
+    };
+    window.addEventListener("resize", screenChanged);
+
     window.addEventListener("scroll", changeBg);
     return (
         <>
-            <div className="md:hidden text-right px-2 py-1">
-                <i onClick={navbar} className="fas fa-bars"></i></div>
+            <div className={`md:hidden sticky top-0 text-right px-2 py-1 ${change ? "bg-primary z-20" : "bg-white z-20"}`}>
+                <i onClick={navbar} className="fas fa-bars"></i>
+            </div>
             {showNav && <div className={`${headerSection} ${change ? "bg-primary z-20" : "bg-white z-20"}`}>
                 <div className="flex flex-col md:flex-row">
                     <Link className={link} to="/home">Home</Link>

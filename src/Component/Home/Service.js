@@ -20,7 +20,7 @@ const Service = ({ children }) => {
         </div>
     }
     return (
-        <div className="px-10 py-5">
+        <div className="px-3 md:px-10 py-5">
             {children}
             <div className={serviceContainer}>
                 {

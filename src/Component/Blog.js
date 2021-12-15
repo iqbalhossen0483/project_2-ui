@@ -10,12 +10,12 @@ const Blog = () => {
             .then(data => setBlogs(data));
     }, [])
     return (
-        <div className='h-screen flex flex-col justify-between'>
-            <div className='grid grid-cols-3 gap-5 m-7'>
+        <div className='h-screen overflow-auto flex flex-col justify-between'>
+            <div className='md:grid grid-cols-3 gap-5 m-7'>
                 {
                     blogs.map(blog => <div
                         key={blog._id}
-                        className='rounded bg-white p-4'>
+                        className='rounded bg-white p-4 my-3 md:my-0'>
                         <h1 className='text-2xl font-semibold mb-2'>{blog.title}</h1>
                         <p>{blog.description.slice(0, 150) + "..."}</p>
                         <div className='flex justify-center mt-3'>

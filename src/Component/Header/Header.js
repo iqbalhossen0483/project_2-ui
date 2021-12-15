@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CustomCss from '../CombineCss';
 import useAuth from '../Firebase/useAuth';
@@ -25,7 +25,7 @@ const Header = () => {
         } else {
             setChange(false);
         }
-        if (window.innerWidth < 480 && window.scrollY > 600) {
+        if (showNav && window.innerWidth < 480 && window.scrollY > 700) {
             setShowNav(false)
         }
     };
@@ -36,6 +36,13 @@ const Header = () => {
             setShowNav(true);
         }
     };
+    useEffect(() => {
+        if (window.innerWidth < 480) {
+            setShowNav(false)
+        } else {
+            setShowNav(true);
+        }
+    }, [])
     window.addEventListener("resize", screenChanged);
 
     window.addEventListener("scroll", changeBg);

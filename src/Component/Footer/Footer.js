@@ -10,7 +10,7 @@ const Footer = () => {
                 <p>ADDRESS: 123 Street, Dhaka, Bangladesh</p>
                 <p>WORKING DAYS / HOURS: Mon - Sun / 9.00 AM - 8.00 PM</p>
             </div>
-            <div>
+            <div className='my-5 md:my-0'>
                 <p className='text-2xl mb-2'>My Account</p>
                 <p>About Us</p>
                 <p>Order History</p>

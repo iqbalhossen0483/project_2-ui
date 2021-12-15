@@ -25,7 +25,7 @@ const Header = () => {
         } else {
             setChange(false);
         }
-        if (window.innerWidth < 480 && window.scrollY > 200) {
+        if (window.innerWidth < 480 && window.scrollY > 600) {
             setShowNav(false)
         }
     };
